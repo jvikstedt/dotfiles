@@ -19,6 +19,9 @@ while test $# -gt 0
       --zsh)
         ./zsh/install.sh
       ;;
+      --apps)
+        ./apps/install.sh
+      ;;
       --*)
         echo "bad option $1"
       ;;
