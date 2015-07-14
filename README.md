@@ -9,3 +9,4 @@ cd ~/ && git clone git@github.com:Janno90/dotfiles.git
 ### Currently available install options:
 nvim
 git
+tmux
