@@ -25,6 +25,9 @@ while test $# -gt 0
       --rbenv)
         ./rbenv/install.sh
       ;;
+      --tmuxinator)
+        ./tmuxinator/install.sh
+      ;;
       --*)
         echo "bad option $1"
       ;;

@@ -1,0 +1,27 @@
+
+name: example
+root: ~/projects/example/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+windows:
+  - editor:
+      layout: 2ef6,237x46,0,0[237x37,0,0,0,237x8,0,38{118x8,0,38,1,118x8,119,38,2}]
+      panes:
+        - vim
+        - #nothing
+        - bundle exec rails c
+  - server: bundle exec rails s

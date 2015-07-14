@@ -7,4 +7,4 @@ cd ~/ && git clone https://github.com/Janno90/dotfiles.git
 ~/dotfiles/install.sh --nvim
 
 ### Install everything:
-~/dotfiles/install.sh --rbenv --apps --nvim --git --tmux --zsh
+~/dotfiles/install.sh --rbenv --apps --nvim --git --tmux --zsh --tmuxinator
