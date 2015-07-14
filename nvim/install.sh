@@ -8,6 +8,8 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
 sudo apt-get install neovim
 
+pip2 install --user neovim
+
 echo "Installing neovim configs"
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
