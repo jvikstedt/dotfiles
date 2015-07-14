@@ -27,10 +27,10 @@ set relativenumber
 set number
 
 set undofile
-set undodir=~/.vim/undodir//
+set undodir=~/.nvim/undodir//
 set history=1000
-set backupdir=~/.vim/backupdir//
-set directory=~/.vim/swapfiles//
+set backupdir=~/.nvim/backupdir//
+set directory=~/.nvim/swapfiles//
 
 set autoindent
 set ts=2
