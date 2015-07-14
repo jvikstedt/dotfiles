@@ -5,9 +5,3 @@ alias ve='source ~/virtual_env/bin/activate'
 alias tml="tmux list-sessions"
 alias tma="tmux -2 attach -t $1"
 alias tmk="tmux kill-session -t $1"
-
-export EDITOR='vim'
-
-source ~/.linux_setup/tmuxinator.zsh
-
-#eastwood theme is great
