@@ -22,6 +22,9 @@ while test $# -gt 0
       --apps)
         ./apps/install.sh
       ;;
+      --rbenv)
+        ./rbenv/install.sh
+      ;;
       --*)
         echo "bad option $1"
       ;;
