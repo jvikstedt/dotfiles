@@ -16,6 +16,9 @@ while test $# -gt 0
       --tmux)
         ./tmux/install.sh
       ;;
+      --zsh)
+        ./zsh/install.sh
+      ;;
       --*)
         echo "bad option $1"
       ;;
