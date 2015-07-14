@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 while test $# -gt 0
   do
     case "$1" in
@@ -8,6 +9,9 @@ while test $# -gt 0
       ;;
       --nvim)
         ./nvim/install.sh
+      ;;
+      --git)
+        ./git/install.sh
       ;;
       --*)
         echo "bad option $1"
