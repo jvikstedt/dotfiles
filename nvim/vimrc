@@ -19,6 +19,8 @@ Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-bundler'
 
+Plug 'slim-template/vim-slim'
+
 call plug#end()
 
 colorscheme molokai
