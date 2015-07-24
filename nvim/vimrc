@@ -18,6 +18,7 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-bundler'
+Plug 'thoughtbot/vim-rspec'
 
 Plug 'slim-template/vim-slim'
 
@@ -56,6 +57,9 @@ set linebreak
 set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
+
+set encoding=utf-8
+set fileencoding=utf-8
 
 highlight ExtraWhitespace ctermbg=1 guibg=red
 match ExtraWhitespace /\s\+$/
@@ -112,3 +116,9 @@ let g:ctrlp_match_window = 'results:30'
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
+
+" Rspec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
