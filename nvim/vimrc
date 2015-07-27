@@ -62,8 +62,9 @@ set sidescroll=1
 set encoding=utf-8
 set fileencoding=utf-8
 
-set ttimeout
-set ttimeoutlen=0
+set timeout
+set timeoutlen=750
+set ttimeoutlen=250
 
 highlight ExtraWhitespace ctermbg=1 guibg=red
 match ExtraWhitespace /\s\+$/
