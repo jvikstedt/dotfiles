@@ -35,7 +35,14 @@ Plug 'kchmck/vim-coffee-script'
 
 call plug#end()
 
+" Colorscheme
+set t_ut=
+set background=dark
+syntax enable
 colorscheme molokai
+set enc=utf-8
+set term=screen-256color
+let $TERM='screen-256color'
 
 set relativenumber
 set number
