@@ -2,20 +2,16 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tomasr/molokai'
 
-"Plug 'scrooloose/nerdtree'
-"Plug 'kien/ctrlp.vim'
-"Plug 'rking/ag.vim'
-"Plug 'bling/vim-airline'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'rking/ag.vim'
+Plug 'bling/vim-airline'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/vimproc.vim'
-Plug 'Shougo/unite.vim'
 
 Plug 'terryma/vim-multiple-cursors'
 
@@ -147,25 +143,8 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-"Unite
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
+" Search buffers
+map <Leader>b :CtrlPBuffer<cr>
 
-nnoremap <leader>/ :Unite grep:.<cr>
-let g:unite_source_history_yank_enable = 1
-nnoremap <leader>y :Unite history/yank<cr>
-nnoremap <leader>s :Unite -quick-match buffer<cr>
-
-let g:unite_data_directory='~/.vim/.cache/unite'
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable=1
-let g:unite_prompt='» '
-let g:unite_split_rule = 'botright'
-
-if executable('ag')
-    let g:unite_source_rec_async_command = 'ag --nocolor --nogroup --hidden -g ""'
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '--nocolor --nogroup --hidden'
-    let g:unite_source_grep_recursive_opt=''
-endif
-nnoremap <silent> <c-p> :Unite -auto-resize file file_mru file_rec<cr>
+" Increased ctrl matches
+let g:ctrlp_match_window = 'results:30'
