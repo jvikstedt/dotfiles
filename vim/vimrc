@@ -13,11 +13,8 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
-"Plug 'terryma/vim-multiple-cursors'
-
 Plug 'tpope/vim-fugitive'
 Plug 'Valloric/YouCompleteMe'
-Plug 'ervandew/supertab'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/syntastic'
 
@@ -72,10 +69,6 @@ set sidescroll=1
 set encoding=utf-8
 set fileencoding=utf-8
 
-set timeout
-set timeoutlen=750
-set ttimeoutlen=250
-
 highlight ExtraWhitespace ctermbg=1 guibg=red
 match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
@@ -128,11 +121,6 @@ noremap <leader>f g]
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<leader><tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
