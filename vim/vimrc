@@ -28,11 +28,48 @@ Plug 'kchmck/vim-coffee-script'
 
 call plug#end()
 
+if has('autocmd')
+  filetype plugin indent on
+endif
+if has('syntax') && !exists('g:syntax_on')
+  syntax enable
+endif
+
 " Colorscheme
 set t_ut=
 set background=dark
-syntax enable
 colorscheme molokai
+
+set autoindent
+set backspace=indent,eol,start
+set complete-=i
+set smarttab
+
+set nrformats-=octal
+
+set ttimeout
+set ttimeoutlen=100
+
+set incsearch
+
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
+
+set laststatus=2
+set ruler
+set showcmd
+set wildmenu
+
+set display+=lastline
+
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim
+endif
 
 set relativenumber
 set number
@@ -43,23 +80,16 @@ set history=1000
 set backupdir=~/.vim/backupdir//
 set directory=~/.vim/swapfiles//
 
-set autoindent
 set ts=2
 set shiftwidth=2
 set expandtab
 set showmatch
 set ignorecase
-set smartcase
 set hlsearch
-set incsearch
 
-set wildmenu
 set wildmode=list:longest,full
 
-set list listchars=tab:-·,trail:·
-set laststatus=2
 set scrolljump=5
-set backspace=indent,eol,start
 set linebreak
 
 set scrolloff=8
