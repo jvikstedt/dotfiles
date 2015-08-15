@@ -9,14 +9,15 @@ Plug 'bling/vim-airline'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'ervandew/supertab'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-fugitive'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/syntastic'
+Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
@@ -95,13 +96,6 @@ set sidescroll=1
 set encoding=utf-8
 set fileencoding=utf-8
 
-highlight ExtraWhitespace ctermbg=1 guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
 hi MatchParen ctermbg=0
 hi MatchParen ctermfg=Red
 
@@ -143,14 +137,9 @@ noremap <leader>g <C-]>
 " Show tags available for word under cursor
 noremap <leader>f g]
 
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -163,7 +152,6 @@ map <Leader>b :CtrlPBuffer<cr>
 
 " Increased ctrl matches
 let g:ctrlp_match_window = 'results:30'
-
 
 " Syntastic options
 set statusline+=%#warningmsg#
