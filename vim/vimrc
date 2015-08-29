@@ -11,6 +11,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'ervandew/supertab'
 
+Plug 'xolox/vim-misc'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
@@ -26,6 +27,8 @@ Plug 'thoughtbot/vim-rspec'
 
 Plug 'slim-template/vim-slim'
 Plug 'kchmck/vim-coffee-script'
+
+Plug 'xolox/vim-notes'
 
 call plug#end()
 
