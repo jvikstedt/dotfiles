@@ -16,6 +16,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/syntastic'
 Plug 'bronson/vim-trailing-whitespace'
@@ -169,3 +170,7 @@ let g:syntastic_check_on_wq = 0
 
 " Highlight column 80
 set colorcolumn=80
+
+" Gitgutter
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
