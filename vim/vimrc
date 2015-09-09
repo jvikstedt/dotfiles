@@ -114,10 +114,6 @@ map ä :tabn <Enter>
 map Ö :m .+1<CR>==
 map Ä :m .-2<CR>==
 
-" Move wrapped lines
-nnoremap k gk
-nnoremap j gj
-
 " Disable Shift-k
 nnoremap K <NOP>
 
