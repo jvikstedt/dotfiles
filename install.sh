@@ -28,6 +28,9 @@ while test $# -gt 0
       --tmuxinator)
         ./tmuxinator/install.sh
       ;;
+      --i3)
+        ./i3/install.sh
+      ;;
       --*)
         echo "bad option $1"
       ;;
