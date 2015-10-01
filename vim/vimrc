@@ -23,7 +23,7 @@ Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-bundler'
+"Plug 'tpope/vim-bundler'
 Plug 'thoughtbot/vim-rspec'
 
 Plug 'slim-template/vim-slim'
