@@ -29,7 +29,7 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'mfukar/robotframework-vim'
 Plug 'slim-template/vim-slim'
 Plug 'kchmck/vim-coffee-script'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 
 Plug 'xolox/vim-notes'
 
