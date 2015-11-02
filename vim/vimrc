@@ -29,7 +29,8 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'mfukar/robotframework-vim'
 Plug 'slim-template/vim-slim'
 Plug 'kchmck/vim-coffee-script'
-"Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'pangloss/vim-javascript'
 
 Plug 'xolox/vim-notes'
 
@@ -176,3 +177,5 @@ set colorcolumn=80
 " Gitgutter
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
+
+let g:syntastic_ruby_checkers=['rubocop', 'mri']
