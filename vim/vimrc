@@ -2,11 +2,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tomasr/molokai'
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'bling/vim-airline'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -18,11 +18,17 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/syntastic'
+if !has('nvim')
+  Plug 'scrooloose/syntastic'
+endif
+
+if has('nvim')
+  Plug 'benekastah/neomake'
+endif
 Plug 'bronson/vim-trailing-whitespace'
 
-Plug 'tpope/vim-rails'
-Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-bundler'
 Plug 'thoughtbot/vim-rspec'
 
@@ -166,11 +172,6 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 " Highlight column 80
 set colorcolumn=80
 
@@ -178,4 +179,15 @@ set colorcolumn=80
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
-let g:syntastic_ruby_checkers=['rubocop', 'mri']
+if has('nvim')
+  autocmd! BufWritePost * Neomake
+endif
+
+if !has('nvim')
+  let g:syntastic_always_populate_loc_list = 1
+  "let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+
+  let g:syntastic_ruby_checkers=['rubocop', 'mri']
+endif
