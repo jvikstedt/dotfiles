@@ -8,24 +8,9 @@ sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt-get update
 sudo apt-get install neovim
 
-pip2 install --user neovim
-
 echo "Installing neovim configs"
 
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-if [ -f ~/.nvimrc ];
-then
-  echo "Found existing vimrc, skipping vimrc linking";
-else
-  echo "Linking vimrc"
-  ln -s ${DIR}/vimrc ~/.nvimrc
-fi
-
-if [ -d ~/.nvim/ ];
-then
-  echo "Found existing nvim folder, skipping linking";
-else
-  echo "Linking .nvim"
-  ln -s ${DIR} ~/.nvim
-fi
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
