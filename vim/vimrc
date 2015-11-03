@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'kien/ctrlp.vim'
@@ -52,7 +52,7 @@ endif
 " Colorscheme
 set t_ut=
 set background=dark
-colorscheme molokai
+colorscheme gruvbox
 
 set autoindent
 set backspace=indent,eol,start
