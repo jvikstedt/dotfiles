@@ -50,7 +50,7 @@ if has('syntax') && !exists('g:syntax_on')
 endif
 
 " Colorscheme
-set t_ut=
+"set t_ut=
 set background=dark
 colorscheme gruvbox
 
@@ -58,11 +58,12 @@ set autoindent
 set backspace=indent,eol,start
 set complete-=i
 set smarttab
+set lazyredraw
 
 set nrformats-=octal
 
-set ttimeout
-set ttimeoutlen=100
+"set ttimeout
+"set ttimeoutlen=100
 
 set incsearch
 
