@@ -15,6 +15,7 @@ Plug 'xolox/vim-misc'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'Shougo/unite.vim'
+Plug 'Shougo/neoyank.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
