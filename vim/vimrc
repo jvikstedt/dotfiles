@@ -41,6 +41,8 @@ Plug 'slim-template/vim-slim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
 Plug 'xolox/vim-notes'
 
