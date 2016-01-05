@@ -44,8 +44,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 
-Plug 'xolox/vim-notes'
-
 call plug#end()
 
 if has('autocmd')
