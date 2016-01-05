@@ -118,9 +118,9 @@ set fileencoding=utf-8
 noremap <Space> <NOP>
 let mapleader = " "
 
-" Change tab
-map ö :tabp <Enter>
-map ä :tabn <Enter>
+" Change buffer
+map ö :bp <Enter>
+map ä :bn <Enter>
 
 " Switch lines
 map Ö :m .+1<CR>==
