@@ -114,9 +114,6 @@ set sidescroll=1
 set encoding=utf-8
 set fileencoding=utf-8
 
-hi MatchParen ctermbg=0
-hi MatchParen ctermfg=Red
-
 " Map leader key to space
 noremap <Space> <NOP>
 let mapleader = " "
