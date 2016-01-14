@@ -7,6 +7,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'bling/vim-airline'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'ap/vim-buftabline'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -119,8 +120,9 @@ noremap <Space> <NOP>
 let mapleader = " "
 
 " Change buffer
-map ö :bp <Enter>
-map ä :bn <Enter>
+set hidden
+nnoremap ä :bnext<CR>
+nnoremap ö :bprev<CR><Paste>
 
 " Switch lines
 map Ö :m .+1<CR>==
