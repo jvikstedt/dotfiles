@@ -123,7 +123,7 @@ let mapleader = " "
 " Change buffer
 set hidden
 nnoremap ä :bnext<CR>
-nnoremap ö :bprev<CR><Paste>
+nnoremap ö :bprev<CR>
 
 " Switch lines
 map Ö :m .+1<CR>==
