@@ -3,8 +3,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'kien/ctrlp.vim'
-Plug 'rking/ag.vim'
 Plug 'bling/vim-airline'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'ap/vim-buftabline'
@@ -12,13 +10,13 @@ Plug 'ap/vim-buftabline'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'unblevable/quick-scope'
-Plug 'tpope/vim-endwise'
 
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/neoyank.vim'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -40,7 +38,6 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'mfukar/robotframework-vim'
 Plug 'slim-template/vim-slim'
 Plug 'kchmck/vim-coffee-script'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -125,6 +122,8 @@ set hidden
 nnoremap ä :bnext<CR>
 nnoremap ö :bprev<CR>
 
+nnoremap <C-p> :Files<CR>
+
 " Switch lines
 map Ö :m .+1<CR>==
 map Ä :m .-2<CR>==
@@ -167,10 +166,7 @@ map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
 " Search buffers
-map <Leader>b :CtrlPBuffer<cr>
-
-" Increased ctrl matches
-let g:ctrlp_match_window = 'results:30'
+map <Leader>b :Buffers<cr>
 
 " Highlight column 80
 set colorcolumn=80
