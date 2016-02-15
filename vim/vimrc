@@ -4,7 +4,6 @@ Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'bling/vim-airline'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'ap/vim-buftabline'
 
 Plug 'SirVer/ultisnips'
@@ -23,10 +22,12 @@ Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 if !has('nvim')
   Plug 'scrooloose/syntastic'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 endif
 
 if has('nvim')
   Plug 'benekastah/neomake'
+  Plug 'Shougo/deoplete.nvim'
 endif
 Plug 'bronson/vim-trailing-whitespace'
 
@@ -177,6 +178,7 @@ let g:gitgutter_eager = 0
 
 if has('nvim')
   autocmd! BufWritePost * Neomake
+  let g:deoplete#enable_at_startup = 1
 endif
 
 if !has('nvim')
@@ -192,3 +194,4 @@ if !has('nvim')
 
   let g:syntastic_ruby_checkers=['rubocop', 'mri']
 endif
+
