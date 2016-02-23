@@ -4,7 +4,7 @@ Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'bling/vim-airline'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer' }
 Plug 'ap/vim-buftabline'
 
 Plug 'SirVer/ultisnips'
