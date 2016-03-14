@@ -31,6 +31,7 @@ if has('nvim')
   Plug 'Shougo/deoplete.nvim'
   Plug 'Shougo/neosnippet'
   Plug 'Shougo/neosnippet-snippets'
+  Plug 'zchee/deoplete-go', { 'do': 'make'}
 endif
 Plug 'bronson/vim-trailing-whitespace'
 
@@ -172,7 +173,6 @@ let g:gitgutter_eager = 0
 
 if has('nvim')
   autocmd! BufWritePost * Neomake
-
   let g:deoplete#enable_at_startup = 1
 
   imap <C-k>     <Plug>(neosnippet_expand_or_jump)
