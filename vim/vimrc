@@ -4,11 +4,9 @@ Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'bling/vim-airline'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer' }
 Plug 'ap/vim-buftabline'
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+
 Plug 'unblevable/quick-scope'
 
 Plug 'xolox/vim-misc'
@@ -23,10 +21,16 @@ Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 if !has('nvim')
   Plug 'scrooloose/syntastic'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer' }
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
 endif
 
 if has('nvim')
   Plug 'benekastah/neomake'
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'Shougo/neosnippet'
+  Plug 'Shougo/neosnippet-snippets'
 endif
 Plug 'bronson/vim-trailing-whitespace'
 
@@ -150,15 +154,6 @@ noremap <leader>g <C-]>
 " Show tags available for word under cursor
 noremap <leader>f g]
 
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
-
-" make YCM compatible with UltiSnips
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
 " Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
@@ -177,6 +172,12 @@ let g:gitgutter_eager = 0
 
 if has('nvim')
   autocmd! BufWritePost * Neomake
+
+  let g:deoplete#enable_at_startup = 1
+
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
 endif
 
 if !has('nvim')
@@ -191,6 +192,15 @@ if !has('nvim')
   let g:syntastic_check_on_wq = 0
 
   let g:syntastic_ruby_checkers=['rubocop', 'mri']
+
+  let g:UltiSnipsExpandTrigger="<c-k>"
+  let g:UltiSnipsJumpForwardTrigger="<c-k>"
+  let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
+
+  " make YCM compatible with UltiSnips
+  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+  let g:SuperTabDefaultCompletionType = '<C-n>'
 endif
 
 let g:go_fmt_command = "goimports"
