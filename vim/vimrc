@@ -204,3 +204,5 @@ if !has('nvim')
 endif
 
 let g:go_fmt_command = "goimports"
+
+map <Leader>d :GoDef<CR>
