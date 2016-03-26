@@ -6,6 +6,8 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 "Plug 'bling/vim-airline'
 "Plug 'ap/vim-buftabline'
 
+Plug 'guns/vim-clojure-static'
+Plug 'tpope/vim-fireplace'
 
 Plug 'unblevable/quick-scope'
 
