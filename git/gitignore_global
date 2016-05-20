@@ -1,5 +1,6 @@
 tags
 env
+.tern-project
 
 *.swp
 *.swo
