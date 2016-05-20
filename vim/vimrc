@@ -3,17 +3,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-"Plug 'bling/vim-airline'
-"Plug 'ap/vim-buftabline'
-
-Plug 'guns/vim-clojure-static'
-Plug 'tpope/vim-fireplace'
-
 Plug 'unblevable/quick-scope'
 
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
+Plug 'bronson/vim-trailing-whitespace'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -21,48 +17,40 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-if !has('nvim')
-  Plug 'scrooloose/syntastic'
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer --tern-completer' }
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
-endif
 
-if has('nvim')
-  Plug 'benekastah/neomake'
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'Shougo/neosnippet'
-  Plug 'Shougo/neosnippet-snippets'
-  Plug 'zchee/deoplete-go', { 'do': 'make'}
-endif
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'benekastah/neomake'
 
+" Deoplete
+Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'carlitux/deoplete-ternjs'
+
+" Snippets
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
+" Ruby
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'tpope/vim-bundler'
 Plug 'thoughtbot/vim-rspec'
-Plug 'mfukar/robotframework-vim'
+
+" Template
 Plug 'slim-template/vim-slim'
-"Plug 'kchmck/vim-coffee-script'
+
+" Go
 Plug 'fatih/vim-go'
 
-"Plug 'othree/yajs.vim', { 'for': 'javascript' }
-"Plug 'gavocanov/vim-js-indent', { 'for': 'javascript' }
+" Javascript
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'Raimondi/delimitMate'
+
+" Rest
+Plug 'mfukar/robotframework-vim'
 
 call plug#end()
 
-if has('autocmd')
-  filetype plugin indent on
-endif
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
-endif
-
 " Colorscheme
-"set t_ut=
 set background=dark
 colorscheme gruvbox
 
@@ -71,19 +59,12 @@ set backspace=indent,eol,start
 set complete-=i
 set smarttab
 set lazyredraw
-
 set nrformats-=octal
-
-"set ttimeout
-"set ttimeoutlen=100
-
 set incsearch
-
 set laststatus=2
 set ruler
 set showcmd
 set wildmenu
-
 set display+=lastline
 
 if &listchars ==# 'eol:$'
@@ -109,18 +90,15 @@ set expandtab
 set showmatch
 set ignorecase
 set hlsearch
-
 set wildmode=list:longest,full
-
 set scrolljump=5
 set linebreak
-
 set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
-
 set encoding=utf-8
 set fileencoding=utf-8
+set colorcolumn=80
 
 " Map leader key to space
 noremap <Space> <NOP>
@@ -130,8 +108,6 @@ let mapleader = " "
 set hidden
 nnoremap ä :bnext<CR>
 nnoremap ö :bprev<CR>
-
-nnoremap <C-p> :Files<CR>
 
 " Switch lines
 map Ö :m .+1<CR>==
@@ -165,49 +141,33 @@ map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
 
-" Search buffers
-map <Leader>b :Buffers<cr>
-
-" Highlight column 80
-set colorcolumn=80
-
 " Gitgutter
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
-if has('nvim')
-  let g:neomake_javascript_enabled_makers = ['eslint']
-  autocmd! BufWritePost * Neomake
-  let g:deoplete#enable_at_startup = 1
+" Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
+autocmd! BufWritePost * Neomake
 
-  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k>     <Plug>(neosnippet_expand_target)
-endif
+" Deplete
+let g:deoplete#enable_at_startup = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-if !has('nvim')
-  " Syntastic options
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-  let g:syntastic_always_populate_loc_list = 1
-  "let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-
-  let g:syntastic_ruby_checkers=['rubocop', 'mri']
-
-  let g:UltiSnipsExpandTrigger="<c-k>"
-  let g:UltiSnipsJumpForwardTrigger="<c-k>"
-  let g:UltiSnipsJumpBackwardTrigger="<s-c-j>"
-
-  " make YCM compatible with UltiSnips
-  let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-  let g:SuperTabDefaultCompletionType = '<C-n>'
-endif
-
+" Golang
 let g:go_fmt_command = "goimports"
-
 map <Leader>d :GoDef<CR>
+
+" FZF
+nnoremap <C-p> :Files<CR>
+map <Leader>b :Buffers<cr>
+
+" tern
+if exists('g:plugs["tern_for_vim"]')
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
+endif
