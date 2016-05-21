@@ -9,3 +9,4 @@ alias tmk="tmux kill-session -t $1"
 export EDITOR="nvim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
+export FZF_DEFAULT_COMMAND='ag -g ""'
