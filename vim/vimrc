@@ -146,7 +146,7 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
 " Neomake
-let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_enabled_makers = ['jshint']
 autocmd! BufWritePost * Neomake
 
 " Deplete
