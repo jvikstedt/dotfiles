@@ -17,7 +17,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-
+Plug 'ap/vim-buftabline'
 Plug 'benekastah/neomake'
 
 " Deoplete
@@ -107,10 +107,10 @@ let mapleader = " "
 
 " Change buffer
 set hidden
-"nnoremap ä :bnext<CR>
-"nnoremap ö :bprev<CR>
-noremap ö <C-o>
-noremap ä <C-i>
+nnoremap ä :bnext<CR>
+nnoremap ö :bprev<CR>
+"noremap ö <C-o>
+"noremap ä <C-i>
 
 " Switch lines
 map Ö :m .+1<CR>==
