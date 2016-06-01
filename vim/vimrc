@@ -150,8 +150,8 @@ let g:gitgutter_eager = 0
 
 " Neomake
 let g:neomake_open_list=0
-let g:neomake_javascript_enabled_makers = ['jshint']
-let g:neomake_jsx_enabled_makers = ['jshint']
+let g:neomake_javascript_enabled_makers = ['eslint', 'jshint']
+let g:neomake_jsx_enabled_makers = ['eslint', 'jshint']
 autocmd! BufWritePost * Neomake
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
