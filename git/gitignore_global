@@ -2,6 +2,7 @@ tags
 env
 .tern-project
 .tern-port
+.agignore
 
 *.swp
 *.swo
