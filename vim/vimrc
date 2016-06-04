@@ -19,6 +19,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ap/vim-buftabline'
 Plug 'benekastah/neomake'
+Plug 'qpkorr/vim-bufkill'
 
 " Deoplete
 Plug 'Shougo/deoplete.nvim'
@@ -151,7 +152,7 @@ let g:gitgutter_eager = 0
 " Neomake
 let g:neomake_open_list=0
 
-if findfile(".eslintrc.json", ".;") != ''
+if findfile(".eslintrc", ".;") != ''
   let g:neomake_javascript_enabled_makers = ['eslint']
   let g:neomake_jsx_enabled_makers = ['eslint']
 else
@@ -187,3 +188,6 @@ endif
 
 " Slim file detection fix
 autocmd BufNewFile,BufRead *.slim set ft=slim
+
+" Vim-buffkill shortcut
+map <C-c> :BD<cr>
