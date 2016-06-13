@@ -20,6 +20,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ap/vim-buftabline'
 Plug 'benekastah/neomake'
 Plug 'qpkorr/vim-bufkill'
+Plug 'justinmk/vim-sneak'
 
 " Deoplete
 Plug 'Shougo/deoplete.nvim'
@@ -191,3 +192,5 @@ autocmd BufNewFile,BufRead *.slim set ft=slim
 
 " Vim-buffkill shortcut
 map <C-c> :BD<cr>
+
+let g:sneak#streak = 1
