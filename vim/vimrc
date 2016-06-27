@@ -193,4 +193,4 @@ autocmd BufNewFile,BufRead *.slim set ft=slim
 " Vim-buffkill shortcut
 map <C-c> :BD<cr>
 
-let g:sneak#streak = 1
+map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
