@@ -194,3 +194,4 @@ autocmd BufNewFile,BufRead *.slim set ft=slim
 map <C-c> :BD<cr>
 
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
