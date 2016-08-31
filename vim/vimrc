@@ -4,6 +4,7 @@ Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'unblevable/quick-scope'
+Plug 'junegunn/vim-peekaboo'
 
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-repeat'
@@ -195,3 +196,16 @@ map <C-c> :BD<cr>
 
 map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+au FileType go nmap <Leader>gd <Plug>(go-doc)
