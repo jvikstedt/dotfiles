@@ -27,6 +27,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'carlitux/deoplete-ternjs'
+Plug 'mhartington/deoplete-typescript'
 
 " Snippets
 Plug 'Shougo/neosnippet'
@@ -43,6 +44,9 @@ Plug 'slim-template/vim-slim'
 
 " Go
 Plug 'fatih/vim-go'
+
+" TS
+Plug 'leafgarland/typescript-vim'
 
 " Javascript
 Plug 'mxw/vim-jsx'
