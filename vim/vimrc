@@ -4,7 +4,6 @@ Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'unblevable/quick-scope'
-Plug 'junegunn/vim-peekaboo'
 
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-repeat'
@@ -52,6 +51,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'kchmck/vim-coffee-script'
 
 " Rest
 Plug 'mfukar/robotframework-vim'
@@ -107,6 +107,7 @@ set sidescroll=1
 set encoding=utf-8
 set fileencoding=utf-8
 set colorcolumn=80
+set nostartofline
 
 " Map leader key to space
 noremap <Space> <NOP>
