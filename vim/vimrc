@@ -1,60 +1,36 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'morhetz/gruvbox'
-
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'unblevable/quick-scope'
-
-Plug 'xolox/vim-misc'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'Raimondi/delimitMate'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'tpope/vim-fugitive'
+
+Plug 'morhetz/gruvbox'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ap/vim-buftabline'
+
 Plug 'benekastah/neomake'
-Plug 'qpkorr/vim-bufkill'
-Plug 'justinmk/vim-sneak'
+
+Plug 'jiangmiao/auto-pairs'
 
 " Deoplete
-Plug 'Shougo/deoplete.nvim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'carlitux/deoplete-ternjs'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mhartington/deoplete-typescript'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" Snippets
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-
-" Ruby
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'tpope/vim-bundler'
-Plug 'thoughtbot/vim-rspec'
-
-" Template
-Plug 'slim-template/vim-slim'
-
-" Go
+" Golang
 Plug 'fatih/vim-go'
 
-" TS
-Plug 'leafgarland/typescript-vim'
-
-" Javascript
-Plug 'mxw/vim-jsx'
+" Syntax highlighting
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'mfukar/robotframework-vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'kchmck/vim-coffee-script'
-
-" Rest
-Plug 'mfukar/robotframework-vim'
 
 call plug#end()
 
@@ -62,70 +38,13 @@ call plug#end()
 set background=dark
 colorscheme gruvbox
 
-set autoindent
-set backspace=indent,eol,start
-set complete-=i
-set smarttab
-set lazyredraw
-set nrformats-=octal
-set incsearch
-set laststatus=2
-set ruler
-set showcmd
-set wildmenu
-set display+=lastline
-
-if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
-
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
-
-set relativenumber
-set number
-
-set undofile
-set undodir=~/.vim/undodir//
-set history=1000
-set backupdir=~/.vim/backupdir//
-set directory=~/.vim/swapfiles//
-
-set ts=2
-set shiftwidth=2
-set expandtab
-set showmatch
-set ignorecase
-set hlsearch
-set wildmode=list:longest,full
-set scrolljump=5
-set linebreak
-set scrolloff=8
-set sidescrolloff=15
-set sidescroll=1
-set encoding=utf-8
-set fileencoding=utf-8
-set colorcolumn=80
-set nostartofline
-
 " Map leader key to space
 noremap <Space> <NOP>
 let mapleader = " "
 
-" Change buffer
-set hidden
-nnoremap ä :bnext<CR>
-nnoremap ö :bprev<CR>
-"noremap ö <C-o>
-"noremap ä <C-i>
-
-" Switch lines
-map Ö :m .+1<CR>==
-map Ä :m .-2<CR>==
-
-" Disable Shift-k
-nnoremap K <NOP>
+" Gitgutter
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 
 " CTRL+Arrows to resize splits
 nnoremap <C-left> :vertical resize -5<cr>
@@ -133,84 +52,66 @@ nnoremap <C-down> :resize +5<cr>
 nnoremap <C-up> :resize -5<cr>
 nnoremap <C-right> :vertical resize +5<cr>
 
-" F4 to remove trailing whitespace
-nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
+" Typos
 command WQ wq
 command Wq wq
 command W w
 command Q q
+nnoremap K <NOP>
 
-" Go to tag under cursor
-noremap <leader>g <C-]>
-" Show tags available for word under cursor
-noremap <leader>f g]
+" Undo & history & swp files
+set undofile
+set undodir=~/.vim/undodir//
+set history=1000
+set backupdir=~/.vim/backupdir//
+set directory=~/.vim/swapfiles//
 
-" Rspec
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" Show column 80
+set colorcolumn=80
 
-" Gitgutter
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
+" Buffer buffer
+set hidden
+nnoremap ä :bnext<CR>
+nnoremap ö :bprev<CR>
+map <C-c> :bd<cr>
 
 " Neomake
-let g:neomake_open_list=0
-
-if findfile(".eslintrc", ".;") != ''
-  let g:neomake_javascript_enabled_makers = ['eslint']
-  let g:neomake_jsx_enabled_makers = ['eslint']
-else
-  let g:neomake_javascript_enabled_makers = ['jshint']
-  let g:neomake_jsx_enabled_makers = ['jshint']
-endif
-
 autocmd! BufWritePost * Neomake
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
-" Deplete
+" Deoplete
 let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" Golang
-let g:go_fmt_command = "goimports"
-map <Leader>d :GoDef<CR>
 
 " FZF
 nnoremap <C-p> :Files<CR>
 map <Leader>b :Buffers<cr>
 
-" tern
-if exists('g:plugs["tern_for_vim"]')
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 1
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-endif
+" Linenumbers
+set relativenumber
+set number
 
-" Slim file detection fix
-autocmd BufNewFile,BufRead *.slim set ft=slim
+" Encodings
+set encoding=utf-8
+set fileencoding=utf-8
 
-" Vim-buffkill shortcut
-map <C-c> :BD<cr>
+" Search
+set hlsearch
+set incsearch
+set ignorecase
 
-map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+" Scroll
+set scrolloff=8
+set sidescrolloff=15
 
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <leader>c <Plug>(go-coverage)
+" Tags
+noremap <leader>g <C-]>
+noremap <leader>f g]
 
-au FileType go nmap <Leader>gd <Plug>(go-doc)
+set ts=2
+set shiftwidth=2
+set expandtab
+set nostartofline
