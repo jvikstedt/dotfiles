@@ -103,7 +103,7 @@ set ignorecase
 set scrolloff=8
 set sidescrolloff=15
 
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:+
+set list listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:+
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
