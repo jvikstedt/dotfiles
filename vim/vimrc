@@ -5,6 +5,9 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'ap/vim-buftabline'
+
 Plug 'morhetz/gruvbox'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -13,9 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'benekastah/neomake'
-
-Plug 'jiangmiao/auto-pairs'
+Plug 'w0rp/ale'
 
 " Deoplete
 Plug 'zchee/deoplete-go', { 'do': 'make'}
@@ -45,6 +46,12 @@ let mapleader = " "
 " Gitgutter
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
+
+" Ale
+let g:ale_lint_on_save = 2
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_enter = 0
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " CTRL+Arrows to resize splits
 nnoremap <C-left> :vertical resize -5<cr>
@@ -76,7 +83,7 @@ nnoremap ö :bprev<CR>
 map <C-c> :bd<cr>
 
 " Neomake
-autocmd! BufWritePost * Neomake
+"autocmd! BufWritePost * Neomake
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -103,7 +110,7 @@ set ignorecase
 set scrolloff=8
 set sidescrolloff=15
 
-set list listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,nbsp:+
+set list listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:+
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 

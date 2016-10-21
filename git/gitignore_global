@@ -3,7 +3,6 @@ env
 .tern-project
 .tern-port
 .agignore
-.eslintrc.json
 
 *.swp
 *.swo
