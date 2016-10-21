@@ -122,3 +122,6 @@ set ts=2
 set shiftwidth=2
 set expandtab
 set nostartofline
+
+" From terminal mode to normal mode with esc
+tnoremap <ESC> <C-\><C-n>
