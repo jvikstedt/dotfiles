@@ -1,9 +1,11 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-sensible'
+"Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+
+"Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ap/vim-buftabline'
@@ -16,15 +18,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 
+"Plug 'benekastah/neomake'
 Plug 'w0rp/ale'
 
-" Deoplete
-Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Autocomplete
+Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'mhartington/deoplete-typescript'
+Plug 'mhartington/deoplete-typescript', { 'commit': '6bf87ea239274a3c46c5a10b9a91e83a57ee7847' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" Golang
+"Plug 'slashmili/alchemist.vim'
 Plug 'fatih/vim-go'
 
 " Syntax highlighting
@@ -32,6 +34,8 @@ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'mfukar/robotframework-vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+"Plug 'elixir-lang/vim-elixir'
+"Plug 'mxw/vim-jsx'
 
 call plug#end()
 
@@ -47,11 +51,8 @@ let mapleader = " "
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
-" Ale
-let g:ale_lint_on_save = 2
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_enter = 0
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+" Neomake
+"autocmd! BufWritePost * Neomake
 
 " CTRL+Arrows to resize splits
 nnoremap <C-left> :vertical resize -5<cr>
@@ -80,10 +81,8 @@ set colorcolumn=80
 set hidden
 nnoremap ä :bnext<CR>
 nnoremap ö :bprev<CR>
-map <C-c> :bd<cr>
-
-" Neomake
-"autocmd! BufWritePost * Neomake
+"map <C-c> :bd<cr>
+nnoremap <C-c> :bp\|bd #<CR>
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -101,14 +100,27 @@ set number
 set encoding=utf-8
 set fileencoding=utf-8
 
+" Timeouts
+set timeoutlen=1000
+set ttimeoutlen=0
+
 " Search
 set hlsearch
 set incsearch
 set ignorecase
+set smartcase
+
+" Matching bracket
+set showmatch
+
+" Error Sounds
+set noerrorbells
+set novisualbell
 
 " Scroll
 set scrolloff=8
 set sidescrolloff=15
+set lazyredraw
 
 set list listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:+
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -124,4 +136,14 @@ set expandtab
 set nostartofline
 
 " From terminal mode to normal mode with esc
-tnoremap <ESC> <C-\><C-n>
+"tnoremap <ESC> <C-\><C-n>
+
+if findfile(".eslintrc", ".;") != ''
+  let g:neomake_javascript_enabled_makers = ['eslint']
+  let g:neomake_jsx_enabled_makers = ['eslint']
+else
+  let g:neomake_javascript_enabled_makers = ['jshint']
+  let g:neomake_jsx_enabled_makers = ['jshint']
+endif
+
+let g:jsx_ext_required = 0
