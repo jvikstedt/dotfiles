@@ -18,8 +18,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 
-"Plug 'benekastah/neomake'
-Plug 'w0rp/ale'
+Plug 'benekastah/neomake'
+"Plug 'w0rp/ale'
 
 " Autocomplete
 Plug 'zchee/deoplete-go', { 'do': 'make' }
@@ -52,7 +52,7 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
 " Neomake
-"autocmd! BufWritePost * Neomake
+autocmd! BufWritePost * Neomake
 
 " CTRL+Arrows to resize splits
 nnoremap <C-left> :vertical resize -5<cr>
