@@ -24,13 +24,13 @@ Plug 'benekastah/neomake'
 " Autocomplete
 Plug 'zchee/deoplete-go', { 'do': 'make' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'mhartington/deoplete-typescript', { 'commit': '6bf87ea239274a3c46c5a10b9a91e83a57ee7847' }
+"Plug 'mhartington/deoplete-typescript', { 'commit': '6bf87ea239274a3c46c5a10b9a91e83a57ee7847' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'slashmili/alchemist.vim'
 Plug 'fatih/vim-go'
 
 " Syntax highlighting
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+"Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'mfukar/robotframework-vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
@@ -121,6 +121,10 @@ set novisualbell
 set scrolloff=8
 set sidescrolloff=15
 set lazyredraw
+
+" Wildmenu
+set wildmode=longest,list,full
+set wildmenu
 
 set list listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:+
 highlight ExtraWhitespace ctermbg=red guibg=red
