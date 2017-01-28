@@ -37,6 +37,9 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 "Plug 'elixir-lang/vim-elixir'
 "Plug 'mxw/vim-jsx'
 
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
 call plug#end()
 
 " Colorscheme
@@ -151,3 +154,9 @@ else
 endif
 
 let g:jsx_ext_required = 0
+
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
