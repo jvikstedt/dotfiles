@@ -145,7 +145,7 @@ set nostartofline
 " From terminal mode to normal mode with esc
 "tnoremap <ESC> <C-\><C-n>
 
-if findfile(".eslintrc", ".;") != ''
+if filereadable(".eslintrc*") || filereadable(".eslintrc.json")
   let g:neomake_javascript_enabled_makers = ['eslint']
   let g:neomake_jsx_enabled_makers = ['eslint']
 else
