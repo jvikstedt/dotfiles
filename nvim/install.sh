@@ -11,6 +11,6 @@ sudo apt-get install neovim
 echo "Installing neovim configs"
 
 
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config/nvim}
 ln -s ~/.vim $XDG_CONFIG_HOME/nvim
 ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
