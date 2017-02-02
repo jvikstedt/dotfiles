@@ -22,7 +22,7 @@ Plug 'benekastah/neomake'
 "Plug 'w0rp/ale'
 
 " Autocomplete
-Plug 'zchee/deoplete-go', { 'do': 'make' }
+Plug 'zchee/deoplete-go', { 'do': 'make && make gen_json' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 "Plug 'mhartington/deoplete-typescript', { 'commit': '6bf87ea239274a3c46c5a10b9a91e83a57ee7847' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -90,6 +90,10 @@ nnoremap <C-c> :bp\|bd #<CR>
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+let g:deoplete#sources#go#use_cache = 1
+let g:deoplete#sources#go#json_directory='~/.vim/plugged/deoplete-go/data/json/1.7.4/linux_amd64'
+let g:deoplete#sources#go#gocode_binary=$GOPATH.'/bin/gocode'
+set completeopt+=noselect
 
 " FZF
 nnoremap <C-p> :Files<CR>
