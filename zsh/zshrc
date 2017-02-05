@@ -17,3 +17,4 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 #export FZF_DEFAULT_OPTS='--black'
 
 export PATH=$PATH:$HOME/dotfiles/bin
+export PATH=node_modules/.bin:$PATH
