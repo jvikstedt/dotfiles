@@ -35,7 +35,7 @@ Plug 'mfukar/robotframework-vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 "Plug 'elixir-lang/vim-elixir'
-"Plug 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx'
 
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
