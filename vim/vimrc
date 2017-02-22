@@ -96,7 +96,11 @@ set completeopt+=noselect
 
 " FZF
 nnoremap <C-p> :Files<CR>
-map <Leader>b :Buffers<cr>
+map <Leader>b :Buffers<CR>
+map <Leader>s :GFiles?<CR>
+map <Leader>c :Commits<CR>
+map gs :Gstatus<CR>
+map gc :Gcommit<CR>
 
 " Linenumbers
 set relativenumber
