@@ -8,7 +8,6 @@ Plug 'tpope/vim-fugitive'
 "Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'ap/vim-buftabline'
 
 Plug 'morhetz/gruvbox'
 
