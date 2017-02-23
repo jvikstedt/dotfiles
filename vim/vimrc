@@ -154,8 +154,6 @@ endif
 
 let g:jsx_ext_required = 0
 
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
-
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
