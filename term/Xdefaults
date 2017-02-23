@@ -2,6 +2,7 @@ XTerm*selectToClipboard:true
 XTerm*locale: true
 Xterm*saveLines: 8192
 xterm*termName: xterm-256color
+xterm*scrollTtyOutput: false
 
 xterm*VT100.Translations: #override \
                  Shift <Key>Insert:    insert-selection(SELECT) \n\
