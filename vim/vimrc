@@ -1,11 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
-"Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-
-"Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -18,22 +15,17 @@ Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'benekastah/neomake'
-"Plug 'w0rp/ale'
 
 " Autocomplete
 Plug 'zchee/deoplete-go', { 'do': 'make && make gen_json' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-"Plug 'mhartington/deoplete-typescript', { 'commit': '6bf87ea239274a3c46c5a10b9a91e83a57ee7847' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'slashmili/alchemist.vim'
 Plug 'fatih/vim-go'
 
 " Syntax highlighting
-"Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'mfukar/robotframework-vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-"Plug 'elixir-lang/vim-elixir'
 Plug 'mxw/vim-jsx'
 
 Plug 'Shougo/neosnippet'
