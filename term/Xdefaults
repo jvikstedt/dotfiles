@@ -3,6 +3,8 @@ XTerm*locale: true
 Xterm*saveLines: 8192
 xterm*termName: xterm-256color
 xterm*scrollTtyOutput: false
+XTerm*metaSendsEscape: true
+XTerm*eightBitInput: false
 
 xterm*VT100.Translations: #override \
                  Shift <Key>Insert:    insert-selection(SELECT) \n\
