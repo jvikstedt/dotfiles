@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'mattn/emmet-vim'
 
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -14,7 +15,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'benekastah/neomake'
+Plug 'w0rp/ale'
 
 " Autocomplete
 Plug 'zchee/deoplete-go', { 'do': 'make && make gen_json' }
@@ -25,11 +26,14 @@ Plug 'fatih/vim-go'
 " Syntax highlighting
 Plug 'mfukar/robotframework-vim'
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+"Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'mxw/vim-jsx'
+Plug 'posva/vim-vue'
 
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
+
+Plug 'slim-template/vim-slim'
 
 call plug#end()
 
@@ -44,9 +48,6 @@ let mapleader = " "
 " Gitgutter
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
-
-" Neomake
-autocmd! BufWritePost * Neomake
 
 " CTRL+Arrows to resize splits
 nnoremap <C-left> :vertical resize -5<cr>
@@ -144,18 +145,17 @@ set nostartofline
 " From terminal mode to normal mode with esc
 "tnoremap <ESC> <C-\><C-n>
 
-if filereadable(".eslintrc*") || filereadable(".eslintrc.json")
-  let g:neomake_javascript_enabled_makers = ['eslint']
-  let g:neomake_jsx_enabled_makers = ['eslint']
-else
-  let g:neomake_javascript_enabled_makers = ['jshint']
-  let g:neomake_jsx_enabled_makers = ['jshint']
-endif
-
-let g:jsx_ext_required = 0
-
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 let g:neosnippet#snippets_directory='~/.vim/snippets'
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
