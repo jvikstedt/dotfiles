@@ -71,8 +71,6 @@ set colorcolumn=80
 
 " Buffer buffer
 set hidden
-nnoremap ä :bnext<CR>
-nnoremap ö :bprev<CR>
 "map <C-c> :bd<cr>
 nnoremap <C-c> :bp\|bd #<CR>
 
