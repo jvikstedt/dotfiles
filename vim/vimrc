@@ -1,3 +1,6 @@
+let g:python_host_prog='/home/jvikstedt/.pyenv/shims/python'
+let g:python3_host_prog='/home/jvikstedt/.pyenv/shims/python3'
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-repeat'
@@ -18,9 +21,10 @@ Plug 'w0rp/ale'
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-go'
-Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'carlitux/deoplete-ternjs'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh', 'for': 'typescript' }
 
 " Syntax highlighting
 Plug 'mfukar/robotframework-vim'
@@ -28,6 +32,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
 Plug 'slim-template/vim-slim'
+Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
@@ -78,8 +83,6 @@ nnoremap <C-c> :bp\|bd #<CR>
 let g:deoplete#enable_at_startup = 1
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 let g:deoplete#sources#go#gocode_binary=$GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#use_cache = 1
-let g:deoplete#sources#go#json_directory='~/.vim/go_json'
 set completeopt+=noselect
 
 " FZF
