@@ -90,6 +90,7 @@ nnoremap <C-p> :Files<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>s :GFiles?<CR>
 nmap <Leader>c :Commits<CR>
+nmap <Leader>r :History:<CR>
 nmap gs :Gstatus<CR>
 nmap gc :Gcommit<CR>
 
